@@ -7,11 +7,9 @@ export default {
 </script>
 
 <template>
-  <h1>Hello Word</h1>
+  <div class="container">
+    <h1>List Projects</h1>
+  </div>
 </template>
 
-<style lang="scss">
-h1 {
-  color: red;
-}
-</style>
+<style lang="scss"></style>
