@@ -51,7 +51,7 @@ export default {
         v-for="link in pagination.links"
         class="page-item"
       >
-        <a class="page-link">{{ link.label }}</a>
+        <a class="page-link" v-html="link.label"></a>
       </li>
     </ul>
   </nav>
