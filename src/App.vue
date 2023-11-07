@@ -1,4 +1,5 @@
 <script>
+import { RouterView } from "vue-router";
 import ProjectList from "./components/projects/ProjectList.vue";
 export default {
   data() {
@@ -7,6 +8,7 @@ export default {
 
   components: {
     ProjectList,
+    RouterView,
   },
 };
 </script>
@@ -14,7 +16,7 @@ export default {
 <template>
   <div class="container">
     <h1>List Projects</h1>
-    <ProjectList />
+    <RouterView />
   </div>
 </template>
 
