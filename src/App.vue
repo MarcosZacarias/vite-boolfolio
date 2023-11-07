@@ -15,7 +15,7 @@ export default {
 
 <template>
   <div class="container">
-    <h1>List Projects</h1>
+    <h1>Navbar</h1>
     <RouterView />
   </div>
 </template>
