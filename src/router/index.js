@@ -17,11 +17,11 @@ const router = createRouter({
       name: "portfolio",
       component: Portfolio,
     },
-    {
-      path: "/blog/:slug",
-      name: "project-detail",
-      component: ProjectDetail,
-    },
+    // {
+    //   path: "/blog/:slug",
+    //   name: "project_detail",
+    //   component: ProjectDetail,
+    // },
   ],
 });
 export { router };
