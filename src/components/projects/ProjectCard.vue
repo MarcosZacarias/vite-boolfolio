@@ -34,7 +34,7 @@ export default {
     <div class="card-body">
       <h5 class="card-title">{{ project.name }}</h5>
       <p class="card-text">{{ project.description }}</p>
-      <div v-if="isDetail" class="card-footer">
+      <div v-if="!isDetail" class="card-footer">
         <router-link
           :to="{
             name: 'project-detail',

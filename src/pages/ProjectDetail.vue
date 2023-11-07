@@ -32,8 +32,10 @@ export default {
 </script>
 
 <template>
-  <h1>Detail Project</h1>
-  <ProjectCard :project="project" />
+  <div class="container">
+    <h1>Project Detail</h1>
+    <ProjectCard :project="project" :isDetail="true" />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

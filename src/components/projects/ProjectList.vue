@@ -41,7 +41,7 @@ export default {
 <template>
   <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3">
     <div class="col" v-for="project in projects">
-      <ProjectCard :project="project" />
+      <ProjectCard :project="project" :isDetail="false" />
     </div>
   </div>
   <nav aria-label="Page navigation example" class="my-3">
