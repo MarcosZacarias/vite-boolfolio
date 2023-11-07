@@ -1,5 +1,5 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import ProjectList from "../components/projects/ProjectList.vue";
 
 export default {
   data() {
@@ -8,14 +8,14 @@ export default {
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    ProjectList,
+  },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <ProjectList />
 </template>
 
 <style lang="scss" scoped></style>
