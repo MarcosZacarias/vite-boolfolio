@@ -33,7 +33,7 @@ export default {
 
 <template>
   <div class="container">
-    <h1>Project Detail</h1>
+    <h1 class="my-3">Project Detail</h1>
     <ProjectCard :project="project" :isDetail="true" />
   </div>
 </template>

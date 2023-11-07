@@ -15,7 +15,10 @@ export default {
 </script>
 
 <template>
-  <ProjectList />
+  <div class="container">
+    <h1 class="my-3">Project List</h1>
+    <ProjectList />
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
