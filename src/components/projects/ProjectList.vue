@@ -27,7 +27,7 @@ export default {
   <nav aria-label="Page navigation example" class="my-3">
     <ul class="pagination">
       <li
-        @click="fetchProjects(link.url)"
+        @click="$emit('fetchProjects', link.url)"
         v-for="link in pagination.links"
         class="page-item"
       >
