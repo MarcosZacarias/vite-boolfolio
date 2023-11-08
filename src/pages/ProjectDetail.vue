@@ -19,9 +19,14 @@ export default {
 
   methods: {
     fetchProject() {
-      axios.get(this.api.baseUrl + this.$route.params.slug).then((response) => {
-        this.project = response.data;
-      });
+      axios
+        .get(this.api.baseUrl + this.$route.params.slug)
+        .then((response) => {
+          this.project = response.data;
+        })
+        .catch((error) => {
+          this.$router.push({ name: "not-found" });
+        });
     },
   },
 
