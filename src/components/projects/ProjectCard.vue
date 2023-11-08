@@ -19,9 +19,14 @@ export default {
 
 <template>
   <div class="card h-100">
-    <!-- <img src="..." class="card-img-top" alt="..." /> -->
-    <div class="card-header" :style="{ backgroundColor: project.type.color }">
-      <strong>Type: {{ project.type.label }}</strong>
+    <img
+      v-if="isDetail && project.cover_img"
+      :src="project.cover_img"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-header" :style="{ backgroundColor: project.type?.color }">
+      <strong>Type: {{ project.type?.label }}</strong>
       <div v-if="project.technologies">
         <span
           v-for="technology in project.technologies"
