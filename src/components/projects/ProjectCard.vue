@@ -26,7 +26,7 @@ export default {
       alt="..."
     />
     <div class="card-header" :style="{ backgroundColor: project.type?.color }">
-      <strong
+      <strong v-if="project.type_id"
         >Type:
         <router-link
           :to="{

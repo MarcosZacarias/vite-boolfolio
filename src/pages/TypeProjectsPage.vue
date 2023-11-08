@@ -1,26 +1,50 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import ProjectList from "../components/projects/ProjectList.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
+      type: {},
       projects: [],
+      api: {
+        baseUrl: "http://127.0.0.1:8000/api/types/",
+      },
+      pagination: {
+        next: null,
+        prev: null,
+        links: null,
+      },
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    ProjectList,
+  },
+
+  methods: {
+    fetchProjects(uri = this.api.baseUrl) {
+      axios.get(uri + this.$route.params.type_id).then((response) => {
+        console.log(response.data);
+        this.type = response.data.type;
+        this.projects = response.data.projects.data;
+        this.pagination.next = response.data.projects.next_page_url;
+        this.pagination.prev = response.data.projects.prev_page_url;
+        this.pagination.links = response.data.projects.links;
+      });
+    },
+  },
 
   created() {
-    console.log("api type");
+    this.fetchProjects();
   },
 };
 </script>
 
 <template>
   <div class="container">
-    <h1>Projects by type: .....</h1>
+    <h1 class="my-3">Projects by type: {{ type.label }}</h1>
+    <ProjectList :projects="projects" :pagination="pagination" />
   </div>
 </template>
 
