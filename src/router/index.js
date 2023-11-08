@@ -30,7 +30,7 @@ const router = createRouter({
       component: TypeProjectsPage,
     },
     {
-      path: "/blog/type/:type_id",
+      path: "/:pathMatch(.*)*",
       name: "not-found",
       component: NotFoundPage,
     },
