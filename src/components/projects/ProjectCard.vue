@@ -30,7 +30,7 @@ export default {
       <div v-if="project.technologies">
         <span
           v-for="technology in project.technologies"
-          class="badge"
+          class="badge mx-1"
           :style="{ backgroundColor: technology.color }"
           >{{ technology.label }}</span
         >
