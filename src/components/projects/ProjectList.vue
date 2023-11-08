@@ -4,36 +4,16 @@ import axios from "axios";
 
 export default {
   data() {
-    return {
-      projects: [],
-      api: {
-        baseUrl: "http://127.0.0.1:8000/api/projects",
-      },
-      pagination: {
-        next: null,
-        prev: null,
-        links: null,
-      },
-    };
+    return {};
   },
 
   components: {
     ProjectCard,
   },
 
-  methods: {
-    fetchProjects(uri = this.api.baseUrl) {
-      axios.get(uri).then((response) => {
-        this.projects = response.data.data;
-        this.pagination.next = response.data.next_page_url;
-        this.pagination.prev = response.data.prev_page_url;
-        this.pagination.links = response.data.links;
-      });
-    },
-  },
-
-  created() {
-    this.fetchProjects();
+  props: {
+    projects: Array,
+    pagination: Object,
   },
 };
 </script>
