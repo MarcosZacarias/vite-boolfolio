@@ -42,7 +42,11 @@ export default {
 <template>
   <div class="container">
     <h1 class="my-3">Project List</h1>
-    <ProjectList :projects="projects" :pagination="pagination" />
+    <ProjectList
+      :projects="projects"
+      :pagination="pagination"
+      @fetchProjects="fetchProjects"
+    />
   </div>
 </template>
 
