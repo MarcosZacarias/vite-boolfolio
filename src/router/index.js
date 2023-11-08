@@ -4,6 +4,7 @@ import Homepage from "../pages/Homepage.vue";
 import Portfolio from "../pages/Portfolio.vue";
 import ProjectDetail from "../pages/ProjectDetail.vue";
 import TypeProjectsPage from "../pages/TypeProjectsPage.vue";
+import NotFoundPage from "../pages/NotFoundPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: "/blog/type/:type_id",
       name: "project-by-type",
       component: TypeProjectsPage,
+    },
+    {
+      path: "/blog/type/:type_id",
+      name: "not-found",
+      component: NotFoundPage,
     },
   ],
 });

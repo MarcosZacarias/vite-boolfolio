@@ -23,15 +23,20 @@ export default {
   },
 
   methods: {
-    fetchProjects(uri = this.api.baseUrl) {
-      axios.get(uri + this.$route.params.type_id).then((response) => {
-        console.log(response.data);
-        this.type = response.data.type;
-        this.projects = response.data.projects.data;
-        this.pagination.next = response.data.projects.next_page_url;
-        this.pagination.prev = response.data.projects.prev_page_url;
-        this.pagination.links = response.data.projects.links;
-      });
+    fetchProjects(uri = this.api.baseUrl + this.$route.params.type_id) {
+      axios
+        .get(uri)
+        .then((response) => {
+          console.log(response.data);
+          this.type = response.data.type;
+          this.projects = response.data.projects.data;
+          this.pagination.next = response.data.projects.next_page_url;
+          this.pagination.prev = response.data.projects.prev_page_url;
+          this.pagination.links = response.data.projects.links;
+        })
+        .catch((error) => {
+          this.$router.push({ name: "not-found" });
+        });
     },
   },
 
@@ -44,7 +49,11 @@ export default {
 <template>
   <div class="container">
     <h1 class="my-3">Projects by type: {{ type.label }}</h1>
-    <ProjectList :projects="projects" :pagination="pagination" />
+    <ProjectList
+      :projects="projects"
+      :pagination="pagination"
+      @fetchProjects="fetchProjects"
+    />
   </div>
 </template>
 
