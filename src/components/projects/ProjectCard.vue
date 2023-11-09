@@ -26,19 +26,22 @@ export default {
       alt="..."
     />
     <div class="card-header" :style="{ backgroundColor: project.type?.color }">
-      <strong v-if="project.type_id"
-        >Type:
-        <router-link
-          :to="{
-            name: 'project-by-type',
-            params: {
-              type_id: project.type_id,
-            },
-          }"
-        >
-          {{ project.type?.label }}
-        </router-link>
-      </strong>
+      <h4>
+        Type:
+        <span v-if="project.type_id">
+          <router-link
+            :to="{
+              name: 'project-by-type',
+              params: {
+                type_id: project.type_id,
+              },
+            }"
+          >
+            {{ project.type?.label }}
+          </router-link>
+        </span>
+        <span v-else>Untyped</span>
+      </h4>
       <div v-if="project.technologies">
         <span
           v-for="technology in project.technologies"
