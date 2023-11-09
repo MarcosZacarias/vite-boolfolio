@@ -1,6 +1,6 @@
 <script>
 import { RouterView } from "vue-router";
-import Navbar from "./components/partials/navbar.vue";
+import Navbar from "./components/ui/navbar.vue";
 export default {
   data() {
     return {};

@@ -1,5 +1,7 @@
 <script>
 import ProjectCard from "./ProjectCard.vue";
+import Pagination from "../ui/Pagination.vue";
+
 import axios from "axios";
 
 export default {
@@ -9,11 +11,18 @@ export default {
 
   components: {
     ProjectCard,
+    Pagination,
   },
 
   props: {
     projects: Array,
     pagination: Object,
+  },
+
+  methods: {
+    paginationUrl(linkUrl) {
+      this.$emit("fetchProjects", linkUrl);
+    },
   },
 };
 </script>
@@ -24,17 +33,7 @@ export default {
       <ProjectCard :project="project" :isDetail="false" />
     </div>
   </div>
-  <nav aria-label="Page navigation example" class="my-3">
-    <ul class="pagination">
-      <li
-        @click="$emit('fetchProjects', link.url)"
-        v-for="link in pagination.links"
-        class="page-item"
-      >
-        <a class="page-link" v-html="link.label"></a>
-      </li>
-    </ul>
-  </nav>
+  <Pagination :pagination="pagination" @paginationUrl="paginationUrl" />
 </template>
 
 <style lang="scss" scoped></style>
